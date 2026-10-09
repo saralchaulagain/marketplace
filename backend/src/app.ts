@@ -2,6 +2,7 @@ import express, { type Express, type Request, type Response } from 'express';
 import morgan from 'morgan';
 import router from './routes/index.js';
 import notFound from './middleware/notFound.middleware.js';
+import { errorHandler } from './middleware/errorHandler.middleware.js';
 
 const app: Express = express();
 if (process.env.NODE_ENV === 'development') {
@@ -13,5 +14,6 @@ app.get('/', (req: Request, res: Response) => {
 // app.use(express.json());
 app.use('/api/v1/', router);
 app.use(notFound);
+app.use(errorHandler);
 
 export default app;

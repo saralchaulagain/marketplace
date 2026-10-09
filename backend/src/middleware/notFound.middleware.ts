@@ -6,14 +6,9 @@ const notFound = (req: Request, res: Response, next: NextFunction) => {
     new ApiError(
       404,
       `Route not found:${req.method}, ${req.originalUrl}
-  }`,
+  `,
     ),
   );
 };
-// res.status(404).json({
-//   success: 'failed',
-//   status: false,
-//   message: `Route not found:${req.method}, ${req.originalUrl}
-//   }`,
-// });
+
 export default notFound;
