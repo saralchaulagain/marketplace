@@ -15,7 +15,7 @@ const startServer = async () => {
       logger.info(`Listening on Port: ${env.port}`);
     });
   } catch (err) {
-    logger.error('Server statup failed: ', err);
+    logger.error(`'Server statup failed: ', ${err}`);
     process.exit(1);
   }
 };
