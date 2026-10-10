@@ -1,5 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 import ApiError from '../utils/ApiError.js';
+import { logger } from '../utils/logger.js';
 
 export const errorHandler = (
   err: Error,
@@ -13,7 +14,7 @@ export const errorHandler = (
       message: err.message,
     });
   }
-  // console.log(err);
+  logger.data(err);
 
   return res.status(500).json({
     success: false,
